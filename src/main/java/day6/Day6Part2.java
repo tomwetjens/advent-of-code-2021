@@ -2,6 +2,8 @@ package day6;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,6 +13,8 @@ import java.util.stream.Collectors;
 public class Day6Part2 {
 
     public static void main(String[] args) throws Exception {
+        var start = Instant.now();
+
         var input = Files.lines(Paths.get(Day6Part2.class.getResource("/day6-input").toURI()))
                 .flatMap(line -> Arrays.stream(line.split(","))
                         .map(Integer::parseInt))
@@ -29,6 +33,9 @@ public class Day6Part2 {
 
         var total = state.values().stream().mapToLong(n -> n).sum();
         System.out.println(total);
+
+        var end = Instant.now();
+        System.out.println(Duration.between(start, end));
     }
 
     static void multiply(Map<Integer, Long> state, int day) {

@@ -2,6 +2,8 @@ package day5;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Pattern;
@@ -47,6 +49,8 @@ public class Day5Part2 {
     }
 
     public static void main(String[] args) throws Exception {
+        var start = Instant.now();
+
         var input = Files.lines(Paths.get(Day5Part2.class.getResource("/day5-input").toURI()))
                 .map(Day5Part2::parseLine)
                 .collect(Collectors.toList());
@@ -63,6 +67,9 @@ public class Day5Part2 {
                 .count();
 
         System.out.println(answer);
+
+        var end = Instant.now();
+        System.out.println(Duration.between(start, end));
     }
 
     private static void printPoints(Map<Point, Long> points, int maxX, int maxY) {
