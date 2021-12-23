@@ -36,27 +36,35 @@ public class Day13Part2 {
             if (instruction[0].endsWith("y")) {
                 var Y = Integer.parseInt(instruction[1]);
 
-                for (var x = 0; x < width; x++) {
-                    for (var y = Y + 1; y < height; y++) {
-                        paper[x][height - y - 1] |= paper[x][y];
-                    }
-                }
+                foldRight(width, height, paper, Y);
 
                 height /= 2;
-            } else {
+            } else if (instruction[0].endsWith("x")) {
                 var X = Integer.parseInt(instruction[1]);
 
-                for (var x = X + 1; x < width; x++) {
-                    for (var y = 0; y < height; y++) {
-                        paper[width - x - 1][y] |= paper[x][y];
-                    }
-                }
+                foldLeft(width, height, paper, X);
 
                 width /= 2;
             }
         }
 
         print(paper, width, height);
+    }
+
+    static void foldRight(int width, int height, boolean[][] paper, int Y) {
+        for (var x = 0; x < width; x++) {
+            for (var y = Y + 1; y < height; y++) {
+                paper[x][height - y - 1] |= paper[x][y];
+            }
+        }
+    }
+
+    static void foldLeft(int width, int height, boolean[][] paper, int X) {
+        for (var x = X + 1; x < width; x++) {
+            for (var y = 0; y < height; y++) {
+                paper[width - x - 1][y] |= paper[x][y];
+            }
+        }
     }
 
     static void print(boolean[][] paper, int width, int height) {
