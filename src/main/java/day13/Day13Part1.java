@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 public class Day13Part1 {
 
     public static void main(String[] args) throws Exception {
-        var input = Files.lines(Paths.get(Day13Part1.class.getResource("/day13-input").toURI()))
+        var input = Files.lines(Paths.get(Day13Part1.class.getResource("input.txt").toURI()))
                 .iterator();
 
         var width = 0;

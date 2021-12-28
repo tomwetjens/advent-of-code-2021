@@ -11,7 +11,7 @@ public class Day11Part2 {
     }
 
     public static void main(String[] args) throws Exception {
-        var state = Files.lines(Paths.get(Day11Part2.class.getResource("/day11-input").toURI()))
+        var state = Files.lines(Paths.get(Day11Part2.class.getResource("input.txt").toURI()))
                 .map(line -> line.chars()
                         .map(c -> Character.digit(c, 10))
                         .map(n -> 10 - n) // invert so it says in which step it will flash

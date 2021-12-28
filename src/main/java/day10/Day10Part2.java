@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Day10Part2 {
 
     public static void main(String[] args) throws Exception {
-        var input = Files.lines(Paths.get(Day10Part2.class.getResource("/day10-input").toURI()))
+        var input = Files.lines(Paths.get(Day10Part2.class.getResource("input.txt").toURI()))
                 .collect(Collectors.toList());
 
         var scores = input.stream()

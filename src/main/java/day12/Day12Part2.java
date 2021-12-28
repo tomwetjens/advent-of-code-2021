@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class Day12Part2 {
 
     public static void main(String[] args) throws Exception {
-        var edges = Files.lines(Paths.get(Day12Part2.class.getResource("/day12-input").toURI()))
+        var edges = Files.lines(Paths.get(Day12Part2.class.getResource("input.txt").toURI()))
                 .map(line -> line.split("-", 2))
                 .flatMap(r -> Stream.of(r, new String[]{r[1], r[0]})) // add inverted edges as well
                 .collect(Collectors.groupingBy(r -> r[0], Collectors.mapping(r -> r[1], Collectors.toList())));
