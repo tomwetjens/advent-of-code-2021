@@ -41,6 +41,11 @@ class Day18Part1Test {
                 .isEqualTo(SnailfishNumber.parse("[[[[7,7],[7,7]],[[8,7],[8,7]]],[[[7,0],[7,7]],9]]"));
         assertThat(SnailfishNumber.parse("[[[[7,7],[7,7]],[[8,7],[8,7]]],[[[7,0],[7,7]],9]]").addAndReduce(SnailfishNumber.parse("[[[[4,2],2],6],[8,7]]")))
                 .isEqualTo(SnailfishNumber.parse("[[[[8,7],[7,7]],[[8,6],[7,7]]],[[[0,7],[6,6]],[8,7]]]"));
+
+        assertThat(SnailfishNumber.parse("[[[6,[8,3]],[2,0]],[[[9,5],[9,1]],3]]").addAndReduce(SnailfishNumber.parse("[[[9,[2,2]],[5,4]],[[[2,2],[9,6]],[7,7]]]")))
+                .isEqualTo(SnailfishNumber.parse("[[[[6,0],[7,7]],[[8,7],9]],[[[6,6],[6,0]],[[6,6],[6,7]]]]"));
+        assertThat(SnailfishNumber.parse("[[[9,[2,2]],[5,4]],[[[2,2],[9,6]],[7,7]]]").addAndReduce(SnailfishNumber.parse("[[[6,[8,3]],[2,0]],[[[9,5],[9,1]],3]]")))
+                .isEqualTo(SnailfishNumber.parse("[[[[6,6],[6,6]],[[6,6],[6,7]]],[[[7,0],[7,8]],[[8,7],[5,5]]]]"));
     }
 
     @Test

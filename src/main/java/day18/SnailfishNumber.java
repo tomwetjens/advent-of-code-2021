@@ -60,11 +60,23 @@ final class SnailfishNumber {
         return isRegular() ? number : left.magnitude() * 3 + right.magnitude() * 2;
     }
 
+    public SnailfishNumber shallowCopy() {
+        return new SnailfishNumber(this);
+    }
+
+    public SnailfishNumber deepCopy() {
+        if (isPair()) {
+            return new SnailfishNumber(left.deepCopy(), right.deepCopy());
+        } else {
+            return shallowCopy();
+        }
+    }
+
     private SnailfishNumber add(SnailfishNumber other) {
         if (number != null && other.number != null) {
             number += other.number;
         } else {
-            left = new SnailfishNumber(this);
+            left = shallowCopy();
             right = other;
             number = null;
         }
